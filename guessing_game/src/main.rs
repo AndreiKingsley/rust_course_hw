@@ -21,9 +21,9 @@ fn main() {
             println!("Congratulations! You won!");
             break;
         } else if input_number < guessed_number {
-            println!("The guessed number is greater the input")
+            println!("The secret number is greater than the input")
         } else {
-            println!("The guessed number is less the input")
+            println!("The secret number is less than the input")
         }
     }
 }

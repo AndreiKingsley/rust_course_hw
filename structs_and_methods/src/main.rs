@@ -23,7 +23,7 @@ enum Figure {
 fn distance(a: &Point, b: &Point) -> f64 {
     let dx = a.x - b.x;
     let dy = a.y - b.y;
-    return (dx * dx + dy * dy).sqrt();
+    (dx * dx + dy * dy).sqrt()
 }
 
 impl Rect {
@@ -34,20 +34,20 @@ impl Rect {
         if self.upper_left_vertex.y > p.y || self.lower_right_vertex.y < p.y {
             return false;
         }
-        return true;
+        true
     }
 
     fn area(&self) -> f64 {
         let dx = self.lower_right_vertex.x - self.upper_left_vertex.x;
         let dy = self.lower_right_vertex.y - self.upper_left_vertex.y;
-        return dx * dy;
+        dx * dy
     }
 }
 
 impl Circle {
     fn contains(&self, p: &Point) -> bool {
         let dist_to_center = distance(p, &self.center);
-        return dist_to_center <= self.radius;
+        dist_to_center <= self.radius
     }
 
     fn area(&self) -> f64 {
@@ -131,7 +131,7 @@ fn main() {
     println!("7. Figure(Rect((-0.1111, -0.2222), (14.88, 13.37))) contains Point(-1.0, -20.0):");
     println!(
         "{}",
-        Figure:: Rect(Rect {
+        Figure::Rect(Rect {
             upper_left_vertex: Point { x: -0.1111, y: -0.2222 },
             lower_right_vertex: Point { x: 14.88, y: 13.37 },
         }).contains(
@@ -142,8 +142,8 @@ fn main() {
     println!("8. Figure(Circle((12.3, 13.3), 42424242.42)) contains Point(0.0, 1000.1):");
     println!(
         "{}",
-        Figure:: Circle(Circle {
-            center: Point {x: 12.3, y: 13.3},
+        Figure::Circle(Circle {
+            center: Point { x: 12.3, y: 13.3 },
             radius: 42424242.42,
         }).contains(
             &Point { x: 0.0, y: 1000.1 }
