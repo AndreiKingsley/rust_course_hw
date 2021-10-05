@@ -11,12 +11,9 @@ pub enum Comparison {
 
 fn check_equal<T: PartialEq>(a: &[T], b: &[T]) -> bool {
     assert_eq!(a.len(), b.len());
-    a.iter().zip(b.iter()).fold(
-        true,
-        |acc, (x, y)| {
-            acc && (*x == *y)
-        },
-    )
+    a.iter()
+        .zip(b.iter())
+        .fold(true, |acc, (x, y)| acc && (*x == *y))
 }
 
 pub fn compare<T: PartialEq>(a: &[T], b: &[T]) -> Comparison {
